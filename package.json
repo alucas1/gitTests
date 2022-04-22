@@ -1,0 +1,25 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dKomplex-Inc/playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dKomplex-Inc/playwright/issues"
+  },
+  "homepage": "https://github.com/dKomplex-Inc/playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.20.0"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.22",
+    "dotenv": "^16.0.0"
+  }
+}

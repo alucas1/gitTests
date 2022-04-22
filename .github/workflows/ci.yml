@@ -1,0 +1,33 @@
+on:
+  push:
+    branches:
+    - reddit
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest # or macos-latest, windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+
+      - uses: microsoft/playwright-github-action@v1
+      
+      - name: Add cookies
+        run: |
+          sudo pwd 
+          sudo echo "${{ secrets.reddit_cookies }}" > auth.json
+          cat auth.json
+          sudo ls -a 
+        
+      - name: Install dependencies and run tests
+        run: npm install && npm test 
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with: 
+          name: test-artifacts
+          path: path/to/artifacts
